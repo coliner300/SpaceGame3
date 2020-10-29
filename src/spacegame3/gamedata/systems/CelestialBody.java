@@ -12,8 +12,8 @@ import java.util.logging.Logger;
 public class CelestialBody extends StellarObject{
     private static final Logger LOG = Logger.getLogger(CelestialBody.class.getName());
 
-    private static final int PROP_NAME_POSITION = 0;
-    private static final int PROP_VALUE_POSITION = 1;
+    private static final int PROP_NAME_POSITION = 0; //the int PROP_NAME_POSITION is set to 0
+    private static final int PROP_VALUE_POSITION = 1; //the int PROP_VALUE_POSITION is set to 1
 
     protected final List<TabRecord> tabInfo;
 
@@ -25,7 +25,7 @@ public class CelestialBody extends StellarObject{
         properties = new HashMap<>();
 
         List<String> systemData = data.get(name);
-        if (systemData != null && !systemData.isEmpty()) {
+        if (systemData != null && !systemData.isEmpty()) {  //checks to make sure input was inserted
             for (String propraw : systemData) {
                 String[] prop = propraw.split("\\|");
                 switch (prop[PROP_NAME_POSITION]) {
@@ -51,8 +51,8 @@ public class CelestialBody extends StellarObject{
     }
 
     @Override
-    public boolean isLandable(){
-        return !tabInfo.isEmpty();
+    public boolean isLandable(){ //boolean for whether the space is landable
+        return !tabInfo.isEmpty(); 
     }
 
     public List<TabRecord> getTabs() {
